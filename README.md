@@ -5,15 +5,15 @@
 This project analyzes U.S. domestic flight performance for the year 2023 using Tableau.
 The goal is to identify:
 
-Delay patterns across airports, airlines, weekdays, and time of day
+- Delay patterns across airports, airlines, weekdays, and time of day
 
-Worst-performing routes and operational hotspots
+- Worst-performing routes and operational hotspots
 
-Seasonal and temporal behaviors in flight delays
+- Seasonal and temporal behaviors in flight delays
 
-Airlines with the best and worst on-time performance
+- Airlines with the best and worst on-time performance
 
-Actionable insights for improving airport efficiency
+- Actionable insights for improving airport efficiency
 
 The final output is a fully interactive Tableau Operational Dashboard with KPI cards, heatmaps, geospatial maps, and comparative analysis visuals.
 
@@ -90,11 +90,11 @@ The Tableau dashboard consists of six key components:
 
 ## 1️⃣ KPI Cards
 
-Average Arrival Delay
+- Average Arrival Delay
 
-On-Time Performance (%)
+- On-Time Performance (%)
 
-Cancellation Rate
+- Cancellation Rate
 
 These provide a quick snapshot of overall flight performance in 2023.
 
