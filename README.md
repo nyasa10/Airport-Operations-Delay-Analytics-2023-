@@ -1,34 +1,62 @@
-# Airport Operations Delay Analytics (2023)
+# Airport Operations Performance & Delay Analytics — 2023
 
-# 📌 Project Overview
+## Interactive Dashboards in Tableau & Power BI
 
-This project analyzes U.S. domestic flight performance for the year 2023 using Tableau.
-The goal is to identify:
+This project analyzes U.S. domestic flight delays for January–August 2023 using **Tableau**, **Power BI**, and **Excel (Power Query)**.
+It uncovers patterns in operational efficiency, airline performance, seasonal delays, and route reliability—presented through two fully-interactive dashboards.
 
-- Delay patterns across airports, airlines, weekdays, and time of day
+## Project Overview
 
-- Worst-performing routes and operational hotspots
+Commercial aviation delays have significant financial and operational impact.
+This project provides an end-to-end analysis of flight performance using:
 
-- Seasonal and temporal behaviors in flight delays
+Time-series delay trends
 
-- Airlines with the best and worst on-time performance
+Airline reliability comparisons
 
-- Actionable insights for improving airport efficiency
+Route-level performance analytics
 
-The final output is a fully interactive Tableau Operational Dashboard with KPI cards, heatmaps, geospatial maps, and comparative analysis visuals.
+Root-cause delay breakdowns
 
-# 📂 Dataset Description
+Interactive slicers for month, airline, airport, and day
 
-The dataset comes from the U.S. Bureau of Transportation Statistics (BTS) On-Time Performance records.
-From the original multi-million row dataset (2019–2023), only 2023 data was extracted and cleaned using Excel Power Query.
+The outcome is two dashboards:
 
-After preprocessing, the dataset includes fields such as:
+✔ Tableau Operational Delay Dashboard
 
-✈️ Flight Details
+Emphasizes geospatial mapping, time-of-day patterns, route delays, and airline ranking.
 
-FL_DATE (Flight Date)
+✔ Power BI Operational KPI Dashboard
 
-AIRLINE_CODE
+Focuses on KPIs, airline performance, route tables, monthly delay causes, and interactive filters.
+
+## Dataset Description
+
+Raw data was obtained from the U.S. Bureau of Transportation Statistics (BTS) – On-Time Performance dataset (over 3M rows, 2019–2023).
+
+**Cleaning & Preprocessing**
+
+Using Excel Power Query, only 2023 data was extracted. Cleaning involved:
+
+Removing unused columns
+
+Filtering by date range
+
+Handling nulls
+
+Deriving new fields
+
+Adding airline lookup table
+
+Calculating total monthly delay minutes
+
+**Features in Cleaned Dataset**
+
+Flight Details
+
+FL_DATE
+
+AIRLINE_CODE, AIRLINE_NAME
 
 ORIGIN, DEST
 
@@ -36,7 +64,7 @@ CRS_DEP_TIME, DEP_TIME
 
 CRS_ARR_TIME, ARR_TIME
 
-⏱ Delay Metrics
+Delay Metrics
 
 DEP_DELAY, ARR_DELAY
 
@@ -50,154 +78,194 @@ DELAY_DUE_SECURITY
 
 DELAY_DUE_LATE_AIRCRAFT
 
-🛑 Status Flags
+Status Flags
 
 CANCELLED
 
 DIVERTED
 
-🧮 Derived Fields 
-
-Is Delayed (binary flag for ≥15 min delay)
-
-Time of Day (Morning/Afternoon/Evening/Night)
+Derived Fields
 
 Route (ORIGIN → DEST)
 
-Day of Week, Month
+Month, Day of Week
 
-On-Time Performance(%)
+Total Delay Minutes
 
-On_Time_Percent_Display (converted to 0–100 scale)
+On-Time %
 
-This cleaned dataset is used for all visualizations.
+Delayed Flights
 
-# 📌 Overall Dashboard
+Delay Hours (for tooltip)
 
-📊 Heatmap – Delay by Day & Hour
+Airline Code → Airline Name Mapping
 
-🗺️ Airport Delay Map
+## Dashboards
+**1️⃣ Tableau Dashboard – Airport Delay Analytics**
 
-📉 Monthly Delay Trend
+Key Visuals
 
-🛫 Top 10 Worst Routes (Avg Arrival Delay)
+**⭐ Heatmap: Delay by Hour × Day**
 
-🏢 Airline On-Time Performance Ranking
+Shows delay concentration patterns (e.g., evenings & Fridays are worst).
 
-# 📈 Dashboard Explanation
+**🗺 Airport Delay Map**
 
-The Tableau dashboard consists of six key components:
+Highlights airports with the highest average delays via geospatial visualization.
 
- **1️⃣ KPI Cards**
+**📉 Monthly Delay Trend**
 
-- Average Arrival Delay
+Shows seasonal peaks and improvement patterns.
 
-- On-Time Performance (%)
+**🚫 Top 10 Worst Routes**
 
-- Cancellation Rate
+Routes contributing disproportionately to arrival delays.
 
-These provide a quick snapshot of overall flight performance in 2023.
+**🛫 Airline Performance Chart**
 
-**2️⃣ Heatmap: Delay Patterns (Day × Hour)**
+Ranks airlines by on-time performance across 2023.
 
-- Reveals operational bottlenecks:
+**2️⃣ Power BI Dashboard – Operational KPI & Root-Cause Analysis**
 
-- Which hours experience the worst delays
+Key Components
 
-- Weekday vs weekend delay patterns
+**⭐ KPI Cards**
 
-- Insights for airport/airline scheduling optimizations
+On Time %
 
-**3️⃣ Geospatial Airport Delay Map**
+Average Arrival Delay (mins)
 
-Identifies:
+Cancellation Rate
 
-- Airports with highest average delays
+Total Flights
 
-- Distribution of air traffic delays across the country
+Delayed Flights
 
-- Volume vs performance relationship
+Most Reliable Airline
 
-**4️⃣ Monthly Delay Trend**
+Worst Month for Delays
 
-Shows:
+**⭐ Trend: On-Time Arrival % by Month**
 
-- Seasonal peaks
+Shows performance volatility across January–August 2023.
 
-- Weather-related patterns
+**⭐ Airline Reliability Comparison**
 
-- Holiday travel impact
+Bar chart of airline on-time performance with full airline names.
 
-- Improving or worsening trends
+**⭐ Route Performance Overview (Table)**
 
-**5️⃣ Top 10 Worst Routes**
+Includes:
 
-- A bar chart ranking routes by highest average arrival delay.
+Avg Arrival Delay
 
-- Highlights long-haul or congestion-prone sectors that contribute most to network inefficiency.
+On-Time %
 
-**6️⃣ Airline On-Time Performance Ranking**
+Total Flights
 
-Ranked comparison of major U.S. carriers:
+Delayed Flights
 
-- Best vs worst airlines
+**⭐ Delay Causes by Month (Stacked Column)**
 
-- Service reliability
+Breaks delays into:
 
-- Insights into operational consistency
+Carrier
 
-**🔍 Insights Summary**
+Late Aircraft
 
-Here are key findings from the analysis (update these with your actual results after reviewing the dashboard):
+Security
 
-- Certain time windows (e.g., late evening) show highest delays, suggesting congestion or cascading delays.
+Weather
 
-- Weather-related delays spike during winter months.
+Formatted in K (thousands) with tooltips converting minutes → hours for readability.
 
-- A handful of routes contribute disproportionately to total delay minutes.
+**⭐ Interactive Slicers**
 
-- Some carriers consistently outperform others in on-time performance metrics.
+Filter dashboard by:
 
-- Airports in high-traffic regions show greater susceptibility to NAS (National Airspace System) delays.
+Month
 
-- These insights help stakeholders optimize staffing, scheduling, and route planning.
+Airline
 
-## 🛠️ Skills & Tools Used
+Day
 
-**Data Cleaning & Preparation**-
+Destination City
+
+## Insights Summary
+
+
+✔ July was the worst month for delays — highest total delay minutes
+✔ Republic Airways was the most reliable airline with the highest on-time %
+✔ Late Aircraft Delay + Carrier Delay accounted for the majority of delays
+✔ On-time performance averaged ~77.4% across all flights
+✔ Cancellation rate remained low (~1.7%), but delays were more common
+✔ Routes such as ___ contributed disproportionately to overall delays
+✔ Delay spikes during evening hours indicate cascading delay effects
+
+## Skills & Tools Used
+
+Data Cleaning & Modeling
 
 Excel Power Query
 
-Data filtering (year-based extraction)
+Power BI Data Model
 
-Derived metrics creation
+DAX Calculations
 
-Missing value handling
+Lookup table creation
 
-**Data Visualization**-
+KPI modeling
 
-Tableau Desktop
+Data Visualization
 
-Heatmap
+Power BI
 
-Filled maps
+KPI Cards
 
-KPI cards
+Stacked Column Charts
 
-Trend analysis
+Bar Charts
 
-Top N analysis
+Table Visual
 
-Interactive filters & dashboard actions
+Custom Tooltips
 
-**Analytics & Domain Skills**-
+Slicers / Filters
 
-Aviation operations analytics
+Tableau
+
+Heatmaps
+
+Maps
+
+Trend Lines
+
+Top N Rankings
+
+KPI Cards
+
+Analytics & Domain Knowledge
+
+Airline operations analytics
 
 Delay root-cause analysis
 
-Time-series interpretation
+Time-series performance evaluation
 
-Route-level performance evaluation
+Route-level diagnostics
 
-Geospatial visualization
+Geospatial patterns
+
+## How This Project Helps Aviation Stakeholders
+
+Airport Operators
+
+Optimize staffing and runway scheduling based on peak delay periods.
+
+Airlines
+
+Identify chronic delay-causing routes and improve turnaround consistency.
+
+Passengers
+
+Understand seasonal and carrier-based reliability trends.
